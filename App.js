@@ -56,7 +56,7 @@ const HelloWorldSceneAR = () => {
         // source={require('./asset/obj/maison/')}
         source={GLTF}
         position={[-0.75, 0.0, -10.0]}
-        scale={[10, 10, 10]}
+        scale={[1, 1, 1]}
         opacity={1.0}
         type="GLTF"
         onLoadStart={e => {
