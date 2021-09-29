@@ -8,6 +8,8 @@ import {
   Viro3DObject,
   ViroMaterials,
   ViroAnimations,
+  ViroAmbientLight,
+  ViroSpotLight,
 } from '@viro-community/react-viro';
 import Maison from './res/obj/maison/cottage.obj';
 import Tree from './res/obj/tree/trees9.obj';
@@ -29,16 +31,26 @@ const HelloWorldSceneAR = () => {
 
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
+      <ViroAmbientLight color="#aaaaaa" />
+
+      <ViroSpotLight
+        innerAngle={5}
+        outerAngle={90}
+        direction={[0, -1, -0.2]}
+        position={[0, 3, 1]}
+        color="#ffffff"
+        castsShadow={true}
+      />
       <ViroText
         text={text}
         scale={[0.5, 0.5, 0.5]}
         position={[0, 0, -3]}
         style={styles.helloWorldTextStyle}
       />
-      <Viro3DObject
+      {/* <Viro3DObject
         // source={require('./asset/obj/maison/')}
         source={Maison}
-        position={[10, -4, -50]}
+        position={[5, -4, -50]}
         scale={[0.5, 0.5, 0.5]}
         type="OBJ"
         materials={['house']}
@@ -51,11 +63,11 @@ const HelloWorldSceneAR = () => {
         type="OBJ"
         materials={['tree']}
         animation={{name: 'animateImage', run: true}}
-      />
+      /> */}
       <Viro3DObject
         // source={require('./asset/obj/maison/')}
         source={GLTF}
-        position={[-0.75, 0.0, -10.0]}
+        position={[-0.75, 0.0, -1.0]}
         scale={[1, 1, 1]}
         opacity={1.0}
         type="GLTF"
